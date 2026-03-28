@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { Tabs } from 'expo-router';
 import { useAuth } from '../../lib/AuthContext';
 import { COLORS } from '../../constants/colors';
@@ -17,14 +18,27 @@ export default function TabsLayout() {
                 tabBarActiveTintColor: COLORS.primary,
                 tabBarInactiveTintColor: COLORS.textMuted,
                 tabBarStyle: {
-                    borderTopWidth: 0.5,
-                    borderTopColor: COLORS.border,
+                    position: 'absolute',
+                    bottom: Platform.OS === 'ios' ? 40 : 35,
+                    left: 20,
+                    right: 20,
+                    height: 56,
+                    borderRadius: 28,
                     backgroundColor: COLORS.white,
-                    height: 60,
-                    paddingBottom: 8,
+                    borderTopWidth: 0, // Remove standard top border
+                    // Premium shadow for floating effect
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 4 },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 12,
+                    elevation: 8,
+                    paddingBottom: 0, // Bottom padding not needed for floating
                 },
                 tabBarLabelStyle: {
-                    fontSize: 11,
+                    fontSize: 12,
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: 0.5,
                 },
             }}
         >
@@ -39,12 +53,14 @@ export default function TabsLayout() {
                 }}
             />
 
-            {/* Tab 2: Search — everyone can search */}
+            {/* Tab 2: Search — only officials can search now */}
             <Tabs.Screen
                 name="search"
                 options={{
                     title: 'Search',
                     tabBarLabel: 'Search',
+                    // Hide this tab for owners
+                    href: isOfficial ? '/(tabs)/search' : null,
                 }}
             />
 
@@ -56,6 +72,14 @@ export default function TabsLayout() {
                     tabBarLabel: 'Dashboard',
                     // Hide this tab for regular owners
                     href: isOfficial ? '/(tabs)/official' : null,
+                }}
+            />
+
+            {/* Explicitly hide any 'land' or '[id]' tab if it's phantom-discovered from parent routes */}
+            <Tabs.Screen
+                name="land/[id]"
+                options={{
+                    href: null,
                 }}
             />
         </Tabs>

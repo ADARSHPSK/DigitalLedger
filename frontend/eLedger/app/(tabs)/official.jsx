@@ -75,8 +75,8 @@ export default function OfficialScreen() {
                     <Text style={styles.headerTitle}>Official dashboard</Text>
                     <Text style={styles.headerSub}>{user?.name}</Text>
                 </View>
-                <TouchableOpacity onPress={logout} style={{ padding: 6 }}>
-                    <Text style={styles.logoutText}>Log out</Text>
+                <TouchableOpacity onPress={logout} style={styles.logoutBtn}>
+                    <Text style={styles.logoutText}>Logout</Text>
                 </TouchableOpacity>
             </View>
 
@@ -148,23 +148,24 @@ export default function OfficialScreen() {
 
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: COLORS.bg },
-    center: { flex: 1, justifyContent: 'center' },
-    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.white, paddingHorizontal: 16, paddingTop: 52, paddingBottom: 14, borderBottomWidth: 0.5, borderColor: COLORS.border },
-    headerTitle: { fontSize: 18, fontWeight: '600', color: COLORS.text },
-    headerSub: { fontSize: 13, color: COLORS.textMuted, marginTop: 2 },
-    logoutText: { fontSize: 13, color: COLORS.disputed },
-    roleBadge: { backgroundColor: '#EEF2FF', borderBottomWidth: 0.5, borderColor: '#A5B4FC', paddingHorizontal: 16, paddingVertical: 7 },
-    roleBadgeText: { fontSize: 12, color: '#3730A3', fontWeight: '500' },
-    statRow: { flexDirection: 'row', gap: 10, padding: 14, backgroundColor: COLORS.white, borderBottomWidth: 0.5, borderColor: COLORS.border },
-    statCard: { flex: 1, backgroundColor: COLORS.bg, borderRadius: 10, padding: 10, alignItems: 'center' },
-    statNum: { fontSize: 24, fontWeight: '600' },
-    statLabel: { fontSize: 11, color: COLORS.textMuted, marginTop: 2 },
-    filterRow: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingVertical: 12, backgroundColor: COLORS.white, borderBottomWidth: 0.5, borderColor: COLORS.border },
-    chip: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 20, borderWidth: 0.5, borderColor: '#ccc' },
+    center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.white, paddingHorizontal: 20, paddingTop: 60, paddingBottom: 20, borderBottomWidth: 1, borderColor: COLORS.borderLight },
+    headerTitle: { fontSize: 22, fontWeight: '800', color: COLORS.text, letterSpacing: -0.5 },
+    headerSub: { fontSize: 14, color: COLORS.textMuted, marginTop: 4, fontWeight: '500' },
+    logoutBtn: { backgroundColor: COLORS.disputedBg, paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: COLORS.disputedBorder },
+    logoutText: { fontSize: 11, color: COLORS.disputed, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5 },
+    roleBadge: { backgroundColor: COLORS.primaryBg, borderBottomWidth: 1, borderColor: COLORS.accent, paddingHorizontal: 20, paddingVertical: 8 },
+    roleBadgeText: { fontSize: 11, color: COLORS.primary, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5 },
+    statRow: { flexDirection: 'row', gap: 12, padding: 20, backgroundColor: COLORS.white, borderBottomWidth: 1, borderColor: COLORS.borderLight },
+    statCard: { flex: 1, backgroundColor: COLORS.bg, borderRadius: 16, padding: 16, alignItems: 'center', borderWidth: 1, borderColor: COLORS.borderLight },
+    statNum: { fontSize: 22, fontWeight: '800', marginBottom: 4 },
+    statLabel: { fontSize: 10, color: COLORS.textMuted, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5 },
+    filterRow: { flexDirection: 'row', gap: 8, paddingHorizontal: 20, paddingVertical: 16, backgroundColor: COLORS.white, borderBottomWidth: 1, borderColor: COLORS.borderLight },
+    chip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 10, borderWidth: 1.5, borderColor: COLORS.borderLight, backgroundColor: COLORS.white },
     chipActive: { backgroundColor: COLORS.primaryBg, borderColor: COLORS.primary },
-    chipText: { fontSize: 12, color: COLORS.textMuted },
-    chipTextActive: { color: COLORS.primary, fontWeight: '500' },
-    error: { margin: 16, color: COLORS.disputed, fontSize: 13 },
-    list: { padding: 16, paddingBottom: 32 },
-    empty: { textAlign: 'center', color: '#999', marginTop: 48, fontSize: 14 },
+    chipText: { fontSize: 12, color: COLORS.textMuted, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.5 },
+    chipTextActive: { color: COLORS.primary, fontWeight: '700' },
+    error: { margin: 20, color: COLORS.disputed, fontSize: 14, fontWeight: '500' },
+    list: { padding: 20, paddingBottom: 40 },
+    empty: { textAlign: 'center', color: COLORS.textMuted, marginTop: 60, fontSize: 15, fontWeight: '500' },
 });

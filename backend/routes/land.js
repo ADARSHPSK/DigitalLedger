@@ -87,27 +87,36 @@ router.get('/official/flagged', protect, requireRole('official', 'admin'), async
 });
 
 // ── GET /land/:id ─────────────────────────────────────────────────────────────
-// Full detail for one land plot — includes complete ownership history + comments
-// Must be logged in
+// Full detail for one land plot
+// Owners can see basic details of ANY land, but history/comments are stripped if they don't own it
 router.get('/:id', protect, async (req, res) => {
   try {
-    const land = await Land.findById(req.params.id)
-      .populate('officialComments.officialId', 'name designation');
-    // populate replaces the officialId (just an ID) with the actual name + designation
+    // Lean() gives us a plain JS object we can modify before sending
+    const landDoc = await Land.findById(req.params.id)
+      .populate('officialComments.officialId', 'name designation')
+      .lean();
 
-    if (!land) return res.status(404).json({ message: 'Land record not found.' });
+    if (!landDoc) return res.status(404).json({ message: 'Land record not found.' });
 
-    // Owners can only view their own land — check landRefs
+    // Enforce RBAC for owners viewing land
     if (req.user.role === 'owner') {
       const User = require('../models/User');
       const user = await User.findById(req.user.id);
-      const canView = user.landRefs.some(
-        r => r.khasraNo === land.khasraNo && r.village === land.village
+      
+      const ownsLand = user.landRefs.some(
+        r => String(r.khasraNo) === String(landDoc.khasraNo) && String(r.village) === String(landDoc.village)
       );
-      if (!canView) return res.status(403).json({ message: 'Access denied.' });
+
+      // If they don't own it, strip sensitive history and comments
+      // (They can still view the public details)
+      if (!ownsLand) {
+        landDoc.ownershipHistory = [];
+        landDoc.officialComments = [];
+        landDoc._isRestricted = true; // Flag for frontend UI
+      }
     }
 
-    res.json(land);
+    res.json(landDoc);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

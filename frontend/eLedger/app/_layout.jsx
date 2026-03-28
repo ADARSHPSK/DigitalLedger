@@ -30,7 +30,6 @@ function RootNavigator() {
       <Stack.Screen name="register/index" />
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="land/[id]" />
-      <Stack.Screen name="land/[id]/comment" />
     </Stack>
   );
 }

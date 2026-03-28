@@ -9,9 +9,12 @@ export default function StatusBadge({ status }) {
     const cfg = STATUS_CONFIG[status] || STATUS_CONFIG.clear;
 
     return (
-        <View style={[styles.badge, { backgroundColor: cfg.bg }]}>
+        <View style={[
+            styles.badge, 
+            { backgroundColor: cfg.bg, borderColor: cfg.border }
+        ]}>
             <Text style={[styles.text, { color: cfg.color }]}>
-                {cfg.label}
+                {cfg.label.toUpperCase()}
             </Text>
         </View>
     );
@@ -19,9 +22,10 @@ export default function StatusBadge({ status }) {
 
 const styles = StyleSheet.create({
     badge: {
-        paddingHorizontal: 10,
-        paddingVertical: 4,
-        borderRadius: 20,
+        paddingHorizontal: 8,
+        paddingVertical: 2,
+        borderRadius: 6,
+        borderWidth: 1,
         alignSelf: 'flex-start',
     },
     text: {

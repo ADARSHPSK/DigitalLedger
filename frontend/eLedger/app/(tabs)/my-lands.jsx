@@ -66,7 +66,7 @@ export default function MyLandsScreen() {
                     <Text style={styles.headerSub}>Namaste, {user?.name}</Text>
                 </View>
                 <TouchableOpacity onPress={logout} style={styles.logoutBtn}>
-                    <Text style={styles.logoutText}>Log out</Text>
+                    <Text style={styles.logoutText}>Logout</Text>
                 </TouchableOpacity>
             </View>
 
@@ -123,21 +123,21 @@ export default function MyLandsScreen() {
 
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: COLORS.bg },
-    center: { flex: 1, justifyContent: 'center' },
-    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.white, paddingHorizontal: 16, paddingTop: 52, paddingBottom: 14, borderBottomWidth: 0.5, borderColor: COLORS.border },
-    headerTitle: { fontSize: 18, fontWeight: '600', color: COLORS.text },
-    headerSub: { fontSize: 13, color: COLORS.textMuted, marginTop: 2 },
-    logoutBtn: { padding: 6 },
-    logoutText: { fontSize: 13, color: COLORS.disputed },
-    roleBadge: { backgroundColor: '#F0FDF4', borderBottomWidth: 0.5, borderColor: '#86EFAC', paddingHorizontal: 16, paddingVertical: 7 },
-    roleBadgeText: { fontSize: 12, color: '#166534', fontWeight: '500' },
-    alert: { marginHorizontal: 16, marginTop: 12, padding: 10, borderRadius: 8, borderLeftWidth: 3 },
-    alertDisputed: { backgroundColor: COLORS.disputedBg, borderLeftColor: COLORS.disputed },
-    alertReview: { backgroundColor: COLORS.reviewBg, borderLeftColor: COLORS.review },
-    alertText: { fontSize: 13, color: COLORS.disputed, fontWeight: '500' },
-    error: { margin: 16, color: COLORS.disputed, fontSize: 13 },
-    list: { padding: 16, paddingBottom: 32 },
-    emptyBox: { alignItems: 'center', marginTop: 60, paddingHorizontal: 32 },
-    emptyTitle: { fontSize: 16, fontWeight: '600', color: COLORS.text, marginBottom: 8 },
-    emptySub: { fontSize: 13, color: COLORS.textMuted, textAlign: 'center', lineHeight: 20 },
+    center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.white, paddingHorizontal: 20, paddingTop: 60, paddingBottom: 20, borderBottomWidth: 1, borderColor: COLORS.borderLight },
+    headerTitle: { fontSize: 22, fontWeight: '800', color: COLORS.text, letterSpacing: -0.5 },
+    headerSub: { fontSize: 14, color: COLORS.textMuted, marginTop: 4, fontWeight: '500' },
+    logoutBtn: { backgroundColor: COLORS.disputedBg, paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: COLORS.disputedBorder },
+    logoutText: { fontSize: 11, color: COLORS.disputed, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5 },
+    roleBadge: { backgroundColor: COLORS.clearBg, borderBottomWidth: 1, borderColor: COLORS.clearBorder, paddingHorizontal: 20, paddingVertical: 8 },
+    roleBadgeText: { fontSize: 11, color: COLORS.clear, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5 },
+    alert: { marginHorizontal: 20, marginTop: 16, padding: 14, borderRadius: 12, borderWidth: 1, flexDirection: 'row', alignItems: 'center' },
+    alertDisputed: { backgroundColor: COLORS.disputedBg, borderColor: COLORS.disputedBorder },
+    alertReview: { backgroundColor: COLORS.reviewBg, borderColor: COLORS.reviewBorder },
+    alertText: { fontSize: 13, color: COLORS.disputed, fontWeight: '600', flex: 1 },
+    error: { margin: 20, color: COLORS.disputed, fontSize: 14, fontWeight: '500' },
+    list: { padding: 20, paddingBottom: 40 },
+    emptyBox: { alignItems: 'center', marginTop: 80, paddingHorizontal: 40 },
+    emptyTitle: { fontSize: 18, fontWeight: '700', color: COLORS.text, marginBottom: 12 },
+    emptySub: { fontSize: 14, color: COLORS.textMuted, textAlign: 'center', lineHeight: 22, fontWeight: '500' },
 });
