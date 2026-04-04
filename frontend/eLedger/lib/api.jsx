@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 //   Android emulator  →  'http://10.0.2.2:3000'
 //   iOS simulator     →  'http://localhost:3000'
 //   Real phone        →  'http://YOUR_COMPUTER_IP:3000'
-const BASE_URL = 'http://192.168.1.12:5000';
+const BASE_URL = 'http://192.168.1.9:5000';
 
 // Every API call goes through this.
 // Automatically attaches the saved JWT token to the Authorization header.

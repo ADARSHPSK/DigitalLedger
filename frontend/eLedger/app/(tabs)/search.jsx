@@ -122,21 +122,131 @@ export default function SearchScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: COLORS.bg },
-    header: { backgroundColor: COLORS.white, paddingHorizontal: 20, paddingTop: 60, paddingBottom: 20, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    headerTitle: { fontSize: 22, fontWeight: '800', color: COLORS.text, letterSpacing: -0.5 },
-    searchRow: { flexDirection: 'row', gap: 12, padding: 20, backgroundColor: COLORS.white, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    input: { flex: 1, borderWidth: 1.5, borderColor: COLORS.border, borderRadius: 12, paddingHorizontal: 16, paddingVertical: 12, fontSize: 15, color: COLORS.text, backgroundColor: COLORS.bg },
-    searchBtn: { backgroundColor: COLORS.primary, borderRadius: 12, paddingHorizontal: 20, justifyContent: 'center', shadowColor: COLORS.primary, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 4, elevation: 3 },
-    searchBtnText: { color: COLORS.white, fontSize: 14, fontWeight: '700' },
-    filterRow: { flexDirection: 'row', gap: 8, paddingHorizontal: 20, paddingVertical: 16, backgroundColor: COLORS.white, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    chip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 10, borderWidth: 1.5, borderColor: COLORS.borderLight, backgroundColor: COLORS.white },
-    chipActive: { backgroundColor: COLORS.primaryBg, borderColor: COLORS.primary },
-    chipText: { fontSize: 12, color: COLORS.textMuted, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.5 },
-    chipTextActive: { color: COLORS.primary, fontWeight: '700' },
-    center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-    error: { margin: 20, color: COLORS.disputed, fontSize: 14, fontWeight: '500' },
-    list: { padding: 20, paddingBottom: 40 },
-    empty: { textAlign: 'center', color: COLORS.textMuted, marginTop: 60, fontSize: 15, fontWeight: '500' },
-    hint: { textAlign: 'center', color: COLORS.textMuted, marginTop: 60, fontSize: 14, lineHeight: 22, paddingHorizontal: 40, fontWeight: '500' },
+    container: {
+        flex: 1,
+        backgroundColor: '#F8FAFC' // 🔥 softer background
+    },
+
+    header: {
+        backgroundColor: '#F8FAFC',
+        paddingHorizontal: 20,
+        paddingTop: 60,
+        paddingBottom: 10,
+    },
+
+    headerTitle: {
+        fontSize: 24,
+        fontWeight: '800',
+        color: COLORS.text,
+        letterSpacing: -0.5
+    },
+
+    // 🔍 Search bar
+    searchRow: {
+        flexDirection: 'row',
+        gap: 10,
+        paddingHorizontal: 20,
+        paddingVertical: 12,
+    },
+
+    input: {
+        flex: 1,
+        borderWidth: 1,
+        borderColor: '#E2E8F0',
+        borderRadius: 14,
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+        fontSize: 14,
+        color: COLORS.text,
+        backgroundColor: '#FFFFFF',
+    },
+
+    searchBtn: {
+        backgroundColor: COLORS.primary,
+        borderRadius: 14,
+        paddingHorizontal: 18,
+        justifyContent: 'center',
+
+        shadowColor: COLORS.primary,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 8,
+        elevation: 4,
+    },
+
+    searchBtnText: {
+        color: COLORS.white,
+        fontSize: 13,
+        fontWeight: '700'
+    },
+
+    // 🎯 Filters
+    filterRow: {
+        flexDirection: 'row',
+        gap: 8,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+    },
+
+    chip: {
+        paddingHorizontal: 14,
+        paddingVertical: 8,
+        borderRadius: 20,  // 🔥 pill shape
+        borderWidth: 1,
+        borderColor: '#E5E7EB',
+        backgroundColor: '#FFFFFF',
+    },
+
+    chipActive: {
+        backgroundColor: COLORS.primary,
+        borderColor: COLORS.primary,
+    },
+
+    chipText: {
+        fontSize: 11,
+        color: COLORS.textMuted,
+        fontWeight: '600',
+    },
+
+    chipTextActive: {
+        color: '#FFFFFF',
+        fontWeight: '700'
+    },
+
+    // 📋 List
+    list: {
+        paddingHorizontal: 20,
+        paddingTop: 10,
+        paddingBottom: 100, // 🔥 space for floating tab bar
+    },
+
+    center: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    error: {
+        margin: 20,
+        color: COLORS.disputed,
+        fontSize: 14,
+        fontWeight: '500'
+    },
+
+    empty: {
+        textAlign: 'center',
+        color: COLORS.textMuted,
+        marginTop: 80,
+        fontSize: 14,
+        fontWeight: '500'
+    },
+
+    hint: {
+        textAlign: 'center',
+        color: COLORS.textMuted,
+        marginTop: 80,
+        fontSize: 13,
+        lineHeight: 20,
+        paddingHorizontal: 40,
+    },
 });

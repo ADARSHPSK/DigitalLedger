@@ -2,6 +2,7 @@ import { Platform } from 'react-native';
 import { Tabs } from 'expo-router';
 import { useAuth } from '../../lib/AuthContext';
 import { COLORS } from '../../constants/colors';
+import { Ionicons } from '@expo/vector-icons';
 
 // This file defines the bottom tab bar.
 // Expo Router automatically shows tabs for files in the (tabs) folder.
@@ -17,28 +18,37 @@ export default function TabsLayout() {
                 headerShown: false,
                 tabBarActiveTintColor: COLORS.primary,
                 tabBarInactiveTintColor: COLORS.textMuted,
+
+                tabBarShowLabel: false, // 🔥 remove labels for sleek look
+
                 tabBarStyle: {
                     position: 'absolute',
-                    bottom: Platform.OS === 'ios' ? 40 : 35,
-                    left: 20,
-                    right: 20,
-                    height: 56,
-                    borderRadius: 28,
+                    bottom: Platform.OS === 'ios' ? 40 : 30,
+
+                    marginHorizontal: 70,   // 🔥 smaller width
+                    height: 52,             // 🔥 reduced height
+
+                    borderRadius: 26,
                     backgroundColor: COLORS.white,
-                    borderTopWidth: 0, // Remove standard top border
-                    // Premium shadow for floating effect
+                    borderTopWidth: 0,
+
                     shadowColor: '#000',
                     shadowOffset: { width: 0, height: 4 },
-                    shadowOpacity: 0.1,
-                    shadowRadius: 12,
-                    elevation: 8,
-                    paddingBottom: 0, // Bottom padding not needed for floating
+                    shadowOpacity: 0.08,
+                    shadowRadius: 10,
+                    elevation: 6,
+
+                    fontSize: 9,
+                    marginTop: -2,
                 },
-                tabBarLabelStyle: {
-                    fontSize: 12,
-                    fontWeight: '700',
-                    textTransform: 'uppercase',
-                    letterSpacing: 0.5,
+
+                tabBarItemStyle: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                },
+
+                tabBarIconStyle: {
+                    marginTop: 2, // keeps icon centered vertically
                 },
             }}
         >
@@ -50,6 +60,13 @@ export default function TabsLayout() {
                     tabBarLabel: 'My Land',
                     // Hide this tab for officials
                     href: isOfficial ? null : '/(tabs)/my-lands',
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Ionicons
+                            name={focused ? 'home' : 'home-outline'}
+                            size={22}
+                            color={color}
+                        />
+                    ),
                 }}
             />
 
@@ -61,6 +78,13 @@ export default function TabsLayout() {
                     tabBarLabel: 'Search',
                     // Hide this tab for owners
                     href: isOfficial ? '/(tabs)/search' : null,
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Ionicons
+                            name={focused ? 'search' : 'search-outline'}
+                            size={22}
+                            color={color}
+                        />
+                    ),
                 }}
             />
 
@@ -72,6 +96,13 @@ export default function TabsLayout() {
                     tabBarLabel: 'Dashboard',
                     // Hide this tab for regular owners
                     href: isOfficial ? '/(tabs)/official' : null,
+                    tabBarIcon: ({ color, size, focused }) => (
+                        <Ionicons
+                            name={focused ? 'grid' : 'grid-outline'}
+                            size={22}
+                            color={color}
+                        />
+                    ),
                 }}
             />
 

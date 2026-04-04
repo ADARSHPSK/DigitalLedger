@@ -63,7 +63,7 @@ export default function LoginScreen() {
       <ScrollView contentContainerStyle={styles.inner} keyboardShouldPersistTaps="handled">
 
         {/* App name + tagline */}
-        <Text style={styles.appName}>BhoomiLedger</Text>
+        <Text style={styles.appName}>Digital-Bhulekh</Text>
         <Text style={styles.tagline}>Village land ownership registry</Text>
 
         {/* Phone input */}
@@ -152,34 +152,172 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: COLORS.white },
-  inner: { flexGrow: 1, justifyContent: 'center', paddingHorizontal: 32, paddingVertical: 60 },
-  appName: { fontSize: 32, fontWeight: '800', color: COLORS.text, marginBottom: 8, letterSpacing: -0.5 },
-  tagline: { fontSize: 15, color: COLORS.textMuted, marginBottom: 48, fontWeight: '500' },
-  label: { fontSize: 12, fontWeight: '700', color: COLORS.text, marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 },
-  input: { borderWidth: 1.5, borderColor: COLORS.border, borderRadius: 12, padding: 16, fontSize: 16, color: COLORS.text, backgroundColor: COLORS.bg, marginBottom: 20 },
-  btn: { backgroundColor: COLORS.primary, borderRadius: 12, padding: 18, alignItems: 'center', marginTop: 8, marginBottom: 20, shadowColor: COLORS.primary, shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.2, shadowRadius: 8, elevation: 4 },
+  container: {
+    flex: 1,
+    backgroundColor: '#F8FAFC' // 🔥 soft gray bg
+  },
+
+  inner: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 28,
+    paddingVertical: 40
+  },
+
+  appName: {
+    fontSize: 34,
+    fontWeight: '800',
+    color: COLORS.text,
+    marginBottom: 6,
+    letterSpacing: -0.5
+  },
+
+  tagline: {
+    fontSize: 14,
+    color: COLORS.textMuted,
+    marginBottom: 40,
+    fontWeight: '500'
+  },
+
+  label: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: COLORS.textMuted,
+    marginBottom: 6,
+    textTransform: 'uppercase',
+    letterSpacing: 1
+  },
+
+  input: {
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    borderRadius: 14,
+    padding: 14,
+    fontSize: 15,
+    color: COLORS.text,
+    backgroundColor: '#FFFFFF',
+    marginBottom: 16,
+  },
+
+  btn: {
+    backgroundColor: COLORS.primary,
+    borderRadius: 14,
+    padding: 16,
+    alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 16,
+
+    shadowColor: COLORS.primary,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    elevation: 5,
+  },
+
   btnDisabled: { opacity: 0.6 },
-  btnText: { color: COLORS.white, fontSize: 16, fontWeight: '700' },
-  registerLink: { alignItems: 'center', marginTop: 8 },
-  registerText: { fontSize: 15, color: COLORS.textMuted, fontWeight: '500' },
-  registerHighlight: { color: COLORS.primary, fontWeight: '700' },
+
+  btnText: {
+    color: COLORS.white,
+    fontSize: 15,
+    fontWeight: '700'
+  },
+
+  registerLink: {
+    alignItems: 'center',
+    marginTop: 6
+  },
+
+  registerText: {
+    fontSize: 14,
+    color: COLORS.textMuted
+  },
+
+  registerHighlight: {
+    color: COLORS.primary,
+    fontWeight: '700'
+  },
 
   // Divider
-  dividerRow: { flexDirection: 'row', alignItems: 'center', marginTop: 40, marginBottom: 20 },
-  dividerLine: { flex: 1, height: 1, backgroundColor: COLORS.borderLight },
-  dividerText: { marginHorizontal: 12, fontSize: 12, color: COLORS.textMuted, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 1 },
+  dividerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 30,
+    marginBottom: 18
+  },
+
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#E5E7EB'
+  },
+
+  dividerText: {
+    marginHorizontal: 10,
+    fontSize: 11,
+    color: COLORS.textMuted,
+    fontWeight: '600',
+    textTransform: 'uppercase'
+  },
 
   // Quick buttons
-  quickRow: { flexDirection: 'row', gap: 12 },
-  quickBtn: { flex: 1, borderRadius: 16, paddingVertical: 20, alignItems: 'center', borderWidth: 1, backgroundColor: COLORS.white, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 10, elevation: 2 },
-  quickOfficer: { borderColor: COLORS.primaryBorder || '#DBEAFE' },
-  quickUser:    { borderColor: COLORS.clearBorder || '#DCFCE7' },
-  quickIcon:  { fontSize: 28, marginBottom: 8 },
-  quickLabel: { fontSize: 14, fontWeight: '700', color: COLORS.text },
-  quickHint:  { fontSize: 11, color: COLORS.textMuted, marginTop: 4, fontWeight: '600', textTransform: 'uppercase' },
+  quickRow: {
+    flexDirection: 'row',
+    gap: 10
+  },
+
+  quickBtn: {
+    flex: 1,
+    borderRadius: 14,
+    paddingVertical: 18,
+    alignItems: 'center',
+    borderWidth: 1,
+    backgroundColor: '#FFFFFF',
+
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+
+  quickOfficer: {
+    borderColor: '#DBEAFE'
+  },
+
+  quickUser: {
+    borderColor: '#DCFCE7'
+  },
+
+  quickIcon: {
+    fontSize: 26,
+    marginBottom: 6
+  },
+
+  quickLabel: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: COLORS.text
+  },
+
+  quickHint: {
+    fontSize: 10,
+    color: COLORS.textMuted,
+    marginTop: 3,
+    textTransform: 'uppercase'
+  },
 
   // Seed note
-  seedNote: { marginTop: 32, fontSize: 12, color: COLORS.textMuted, textAlign: 'center', lineHeight: 20, fontWeight: '500' },
-  codeText: { fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace', color: COLORS.text, fontWeight: '700' },
+  seedNote: {
+    marginTop: 26,
+    fontSize: 11,
+    color: COLORS.textMuted,
+    textAlign: 'center',
+    lineHeight: 18
+  },
+
+  codeText: {
+    fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace',
+    color: COLORS.text,
+    fontWeight: '600'
+  },
 });

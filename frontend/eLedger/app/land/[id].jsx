@@ -150,8 +150,8 @@ export default function LandDetailScreen() {
                 </View>
 
                 {isOfficial && (
-                    <TouchableOpacity 
-                        style={styles.transferToggle} 
+                    <TouchableOpacity
+                        style={styles.transferToggle}
                         onPress={() => setShowTransferForm(!showTransferForm)}
                     >
                         <Text style={styles.transferToggleText}>
@@ -165,7 +165,7 @@ export default function LandDetailScreen() {
             {isOfficial && showTransferForm && (
                 <View style={styles.transferForm}>
                     <Text style={styles.formTitle}>New Ownership Entry</Text>
-                    
+
                     <Text style={styles.inputLabel}>New Owner Name</Text>
                     <TextInput
                         style={styles.formInput}
@@ -211,7 +211,7 @@ export default function LandDetailScreen() {
                         onPress={submitTransfer}
                         disabled={transferring}
                     >
-                        {transferring 
+                        {transferring
                             ? <ActivityIndicator color="#fff" />
                             : <Text style={styles.transferSubmitText}>Complete Transfer</Text>
                         }
@@ -311,7 +311,7 @@ export default function LandDetailScreen() {
             {isOfficial && (
                 <View style={styles.formContainer}>
                     <Text style={styles.sectionTitle}>Add a comment / update status</Text>
-                    
+
                     <TextInput
                         style={styles.textarea}
                         placeholder="Describe your observation, required action, or decision…"
@@ -362,66 +362,397 @@ export default function LandDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: COLORS.bg },
-    center: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
-    errorText: { color: COLORS.disputed, fontSize: 14, marginBottom: 12 },
-    backLink: { color: COLORS.primary, fontSize: 14 },
-    headerBar: { backgroundColor: COLORS.white, paddingTop: 60, paddingHorizontal: 20, paddingBottom: 16, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    backBtnWrapper: { backgroundColor: COLORS.bg, alignSelf: 'flex-start', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: COLORS.border },
-    backBtn: { fontSize: 13, color: COLORS.primary, fontWeight: '700', textTransform: 'uppercase' },
-    summaryCard: { backgroundColor: COLORS.white, padding: 20, marginBottom: 8, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    summaryTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 },
-    plotTitle: { fontSize: 18, fontWeight: '700', color: COLORS.text, flex: 1, marginRight: 8 },
-    plotMeta: { fontSize: 13, color: COLORS.textMuted, marginBottom: 4, fontWeight: '500' },
-    ownerRow: { marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderColor: COLORS.borderLight },
-    ownerLabel: { fontSize: 10, color: COLORS.textMuted, textTransform: 'uppercase', letterSpacing: 1, fontWeight: '700', marginBottom: 4 },
-    ownerName: { fontSize: 16, fontWeight: '700', color: COLORS.primary },
-    sectionTitle: { fontSize: 11, fontWeight: '800', color: COLORS.textMuted, textTransform: 'uppercase', letterSpacing: 1.2, marginTop: 28, marginBottom: 16, paddingHorizontal: 20 },
-    timelineWrapper: { paddingHorizontal: 20 },
-    tlRow: { flexDirection: 'row', marginBottom: 24 },
-    tlLeft: { alignItems: 'center', width: 24, marginRight: 12 },
-    tlDot: { width: 14, height: 14, borderRadius: 7, marginTop: 4, borderWidth: 2, borderColor: COLORS.white, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.1, shadowRadius: 2, elevation: 2 },
-    tlLine: { width: 2, flex: 1, backgroundColor: COLORS.border, marginTop: 6 },
-    tlContent: { flex: 1, paddingBottom: 8 },
-    tlEvent: { fontSize: 15, fontWeight: '700', color: COLORS.text },
-    tlName: { fontSize: 14, color: COLORS.text, marginTop: 4, fontWeight: '500' },
-    tlDateRow: { marginTop: 4 },
-    tlDate: { fontSize: 12, color: COLORS.textMuted, fontWeight: '500' },
-    tlDetail: { fontSize: 12, color: COLORS.textMuted, marginTop: 4 },
-    noteBox: { backgroundColor: COLORS.borderLight, borderRadius: 10, padding: 12, marginTop: 8 },
-    noteText: { fontSize: 13, color: COLORS.text, lineHeight: 20 },
-    commentCard: { backgroundColor: COLORS.white, marginHorizontal: 20, marginBottom: 12, borderRadius: 16, padding: 16, borderWidth: 1, borderColor: COLORS.borderLight, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 6, elevation: 1 },
-    commentHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 },
-    commentBy: { fontSize: 14, fontWeight: '700', color: COLORS.text },
-    commentDate: { fontSize: 11, color: COLORS.textMuted, fontWeight: '600', textTransform: 'uppercase' },
-    tagPill: { alignSelf: 'flex-start', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 6, marginTop: 10, borderWidth: 1 },
-    tagText: { fontSize: 10, fontWeight: '800' },
-    commentText: { fontSize: 14, color: COLORS.text, lineHeight: 22 },
-    restrictedCard: { backgroundColor: COLORS.white, marginHorizontal: 20, borderRadius: 16, padding: 24, alignItems: 'center', borderWidth: 1, borderColor: COLORS.borderLight, marginTop: 8 },
-    restrictedIcon: { fontSize: 32, marginBottom: 16 },
-    restrictedTitle: { fontSize: 16, fontWeight: '700', color: COLORS.text, marginBottom: 8 },
-    restrictedText: { fontSize: 14, color: COLORS.textMuted, textAlign: 'center', lineHeight: 22 },
-    formContainer: { marginHorizontal: 20, marginTop: 16, padding: 20, backgroundColor: COLORS.white, borderRadius: 16, borderWidth: 1, borderColor: COLORS.borderLight, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.05, shadowRadius: 10, elevation: 2 },
-    textarea: { borderWidth: 1, borderColor: COLORS.border, borderRadius: 12, padding: 14, fontSize: 15, color: COLORS.text, minHeight: 100, marginBottom: 12, backgroundColor: COLORS.bg },
-    labelHint: { fontSize: 12, color: COLORS.textMuted, marginBottom: 10, fontWeight: '500' },
-    tagsContainer: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 20 },
-    tagBtn: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.bg, borderColor: COLORS.border },
-    tagBtnText: { fontSize: 13, fontWeight: '600' },
-    tagCheck: { fontSize: 13, fontWeight: '700', marginLeft: 6 },
-    submitBtn: { backgroundColor: COLORS.primary, borderRadius: 12, padding: 16, alignItems: 'center' },
+    container: {
+        flex: 1,
+        backgroundColor: '#F8FAFC' // 🔥 soft bg
+    },
+
+    center: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 24
+    },
+
+    errorText: {
+        color: COLORS.disputed,
+        fontSize: 14,
+        marginBottom: 12
+    },
+
+    backLink: {
+        color: COLORS.primary,
+        fontSize: 14
+    },
+
+    // 🔙 Header
+    headerBar: {
+        paddingTop: 60,
+        paddingHorizontal: 20,
+        paddingBottom: 10,
+    },
+
+    backBtnWrapper: {
+        backgroundColor: '#FFFFFF',
+        alignSelf: 'flex-start',
+        paddingHorizontal: 14,
+        paddingVertical: 8,
+        borderRadius: 20,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.06,
+        shadowRadius: 6,
+        elevation: 2,
+    },
+
+    backBtn: {
+        fontSize: 13,
+        color: COLORS.primary,
+        fontWeight: '700'
+    },
+
+    // 📦 Summary Card
+    summaryCard: {
+        backgroundColor: '#FFFFFF',
+        marginHorizontal: 20,
+        marginTop: 10,
+        borderRadius: 18,
+        padding: 20,
+
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.06,
+        shadowRadius: 12,
+        elevation: 3,
+    },
+
+    summaryTop: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        marginBottom: 8
+    },
+
+    plotTitle: {
+        fontSize: 17,
+        fontWeight: '700',
+        color: COLORS.text,
+        flex: 1,
+        marginRight: 8
+    },
+
+    plotMeta: {
+        fontSize: 13,
+        color: COLORS.textMuted,
+        marginBottom: 4
+    },
+
+    ownerRow: {
+        marginTop: 12,
+        paddingTop: 12,
+        borderTopWidth: 1,
+        borderColor: '#E5E7EB'
+    },
+
+    ownerLabel: {
+        fontSize: 10,
+        color: COLORS.textMuted,
+        textTransform: 'uppercase',
+        marginBottom: 4
+    },
+
+    ownerName: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: COLORS.primary
+    },
+
+    transferToggle: {
+        marginTop: 16,
+        backgroundColor: COLORS.primary,
+        padding: 12,
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+
+    transferToggleText: {
+        color: '#fff',
+        fontSize: 13,
+        fontWeight: '700'
+    },
+
+    // 📊 Sections
+    sectionTitle: {
+        fontSize: 11,
+        fontWeight: '700',
+        color: COLORS.textMuted,
+        marginTop: 26,
+        marginBottom: 12,
+        paddingHorizontal: 20
+    },
+
+    // 🧾 Timeline
+    timelineWrapper: {
+        paddingHorizontal: 20
+    },
+
+    tlRow: {
+        flexDirection: 'row',
+        marginBottom: 20
+    },
+
+    tlLeft: {
+        alignItems: 'center',
+        width: 20,
+        marginRight: 10
+    },
+
+    tlDot: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+    },
+
+    tlLine: {
+        width: 2,
+        flex: 1,
+        backgroundColor: '#E5E7EB',
+        marginTop: 4
+    },
+
+    tlContent: {
+        flex: 1,
+        backgroundColor: '#FFFFFF',
+        padding: 14,
+        borderRadius: 12,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.05,
+        shadowRadius: 6,
+        elevation: 2,
+    },
+
+    tlEvent: {
+        fontSize: 14,
+        fontWeight: '700',
+        color: COLORS.text
+    },
+
+    tlName: {
+        fontSize: 13,
+        marginTop: 4
+    },
+
+    tlDate: {
+        fontSize: 11,
+        color: COLORS.textMuted,
+        marginTop: 2
+    },
+
+    tlDetail: {
+        fontSize: 11,
+        color: COLORS.textMuted,
+        marginTop: 4
+    },
+
+    noteBox: {
+        backgroundColor: '#F1F5F9',
+        borderRadius: 8,
+        padding: 10,
+        marginTop: 8
+    },
+
+    noteText: {
+        fontSize: 12
+    },
+
+    // 💬 Comments
+    commentCard: {
+        backgroundColor: '#FFFFFF',
+        marginHorizontal: 20,
+        marginBottom: 12,
+        borderRadius: 14,
+        padding: 14,
+
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.05,
+        shadowRadius: 6,
+        elevation: 2,
+    },
+
+    commentHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 6
+    },
+
+    commentBy: {
+        fontSize: 13,
+        fontWeight: '700'
+    },
+
+    commentDate: {
+        fontSize: 11,
+        color: COLORS.textMuted
+    },
+
+    commentText: {
+        fontSize: 13,
+        lineHeight: 20
+    },
+
+    tagPill: {
+        marginTop: 8,
+        paddingHorizontal: 8,
+        paddingVertical: 3,
+        borderRadius: 6
+    },
+
+    tagText: {
+        fontSize: 10,
+        fontWeight: '700'
+    },
+
+    // 📝 Form
+    formContainer: {
+        marginHorizontal: 20,
+        marginTop: 16,
+        padding: 18,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 16,
+
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 10,
+        elevation: 3,
+    },
+
+    textarea: {
+        borderWidth: 1,
+        borderColor: '#E5E7EB',
+        borderRadius: 12,
+        padding: 12,
+        fontSize: 14,
+        minHeight: 100,
+        marginBottom: 10,
+        backgroundColor: '#F8FAFC'
+    },
+
+    labelHint: {
+        fontSize: 11,
+        color: COLORS.textMuted,
+        marginBottom: 8
+    },
+
+    tagsContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 8,
+        marginBottom: 16
+    },
+
+    tagBtn: {
+        borderWidth: 1,
+        borderRadius: 20,
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        backgroundColor: '#FFFFFF'
+    },
+
+    tagBtnText: {
+        fontSize: 12
+    },
+
+    submitBtn: {
+        backgroundColor: COLORS.primary,
+        borderRadius: 12,
+        padding: 14,
+        alignItems: 'center'
+    },
+
+    submitText: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: '700'
+    },
+
     submitDisabled: { opacity: 0.6 },
-    submitText: { color: COLORS.white, fontSize: 15, fontWeight: '700' },
-    transferToggle: { marginTop: 16, backgroundColor: COLORS.primaryBg, padding: 12, borderRadius: 10, alignItems: 'center', borderWidth: 1, borderColor: COLORS.accent },
-    transferToggleText: { color: COLORS.primary, fontSize: 13, fontWeight: '700' },
-    transferForm: { margin: 20, padding: 20, backgroundColor: COLORS.white, borderRadius: 16, borderWidth: 1, borderColor: COLORS.borderLight, shadowColor: '#000', shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.1, shadowRadius: 15, elevation: 4 },
-    formTitle: { fontSize: 16, fontWeight: '800', marginBottom: 20, color: COLORS.text },
-    inputLabel: { fontSize: 11, fontWeight: '700', color: COLORS.textMuted, marginBottom: 6, marginTop: 12, textTransform: 'uppercase', letterSpacing: 0.5 },
-    formInput: { borderWidth: 1, borderColor: COLORS.border, borderRadius: 10, padding: 12, fontSize: 14, color: COLORS.text, backgroundColor: COLORS.bg },
-    typeRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 4 },
-    typeBtn: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 10, borderWidth: 1, borderColor: COLORS.border, backgroundColor: COLORS.white },
-    typeBtnActive: { backgroundColor: COLORS.primary, borderColor: COLORS.primary },
-    typeBtnText: { fontSize: 13, color: COLORS.textMuted, fontWeight: '600' },
-    typeBtnTextActive: { color: COLORS.white, fontWeight: '700' },
-    transferSubmit: { backgroundColor: '#059669', marginTop: 24, padding: 16, borderRadius: 12, alignItems: 'center' },
-    transferSubmitText: { color: COLORS.white, fontWeight: '800', fontSize: 15 },
+
+    // 🔄 Transfer form
+    transferForm: {
+        margin: 20,
+        padding: 18,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 16,
+
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 6 },
+        shadowOpacity: 0.08,
+        shadowRadius: 12,
+        elevation: 4,
+    },
+
+    formTitle: {
+        fontSize: 15,
+        fontWeight: '700',
+        marginBottom: 16
+    },
+
+    inputLabel: {
+        fontSize: 11,
+        marginBottom: 4,
+        marginTop: 10,
+        color: COLORS.textMuted
+    },
+
+    formInput: {
+        borderWidth: 1,
+        borderColor: '#E5E7EB',
+        borderRadius: 10,
+        padding: 10,
+        backgroundColor: '#F8FAFC'
+    },
+
+    typeRow: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 8
+    },
+
+    typeBtn: {
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 20,
+        backgroundColor: '#FFFFFF',
+        borderWidth: 1,
+        borderColor: '#E5E7EB'
+    },
+
+    typeBtnActive: {
+        backgroundColor: COLORS.primary
+    },
+
+    typeBtnText: {
+        fontSize: 12,
+        color: COLORS.textMuted
+    },
+
+    typeBtnTextActive: {
+        color: '#fff'
+    },
+
+    transferSubmit: {
+        backgroundColor: '#059669',
+        marginTop: 20,
+        padding: 14,
+        borderRadius: 12,
+        alignItems: 'center'
+    },
+
+    transferSubmitText: {
+        color: '#fff',
+        fontWeight: '700'
+    },
 });

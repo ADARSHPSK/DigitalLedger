@@ -147,25 +147,155 @@ export default function OfficialScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: COLORS.bg },
-    center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.white, paddingHorizontal: 20, paddingTop: 60, paddingBottom: 20, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    headerTitle: { fontSize: 22, fontWeight: '800', color: COLORS.text, letterSpacing: -0.5 },
-    headerSub: { fontSize: 14, color: COLORS.textMuted, marginTop: 4, fontWeight: '500' },
-    logoutBtn: { backgroundColor: COLORS.disputedBg, paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20, borderWidth: 1, borderColor: COLORS.disputedBorder },
-    logoutText: { fontSize: 11, color: COLORS.disputed, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5 },
-    roleBadge: { backgroundColor: COLORS.primaryBg, borderBottomWidth: 1, borderColor: COLORS.accent, paddingHorizontal: 20, paddingVertical: 8 },
-    roleBadgeText: { fontSize: 11, color: COLORS.primary, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5 },
-    statRow: { flexDirection: 'row', gap: 12, padding: 20, backgroundColor: COLORS.white, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    statCard: { flex: 1, backgroundColor: COLORS.bg, borderRadius: 16, padding: 16, alignItems: 'center', borderWidth: 1, borderColor: COLORS.borderLight },
-    statNum: { fontSize: 22, fontWeight: '800', marginBottom: 4 },
-    statLabel: { fontSize: 10, color: COLORS.textMuted, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5 },
-    filterRow: { flexDirection: 'row', gap: 8, paddingHorizontal: 20, paddingVertical: 16, backgroundColor: COLORS.white, borderBottomWidth: 1, borderColor: COLORS.borderLight },
-    chip: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 10, borderWidth: 1.5, borderColor: COLORS.borderLight, backgroundColor: COLORS.white },
-    chipActive: { backgroundColor: COLORS.primaryBg, borderColor: COLORS.primary },
-    chipText: { fontSize: 12, color: COLORS.textMuted, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.5 },
-    chipTextActive: { color: COLORS.primary, fontWeight: '700' },
-    error: { margin: 20, color: COLORS.disputed, fontSize: 14, fontWeight: '500' },
-    list: { padding: 20, paddingBottom: 40 },
-    empty: { textAlign: 'center', color: COLORS.textMuted, marginTop: 60, fontSize: 15, fontWeight: '500' },
+    container: {
+        flex: 1,
+        backgroundColor: '#F8FAFC' // 🔥 soft background
+    },
+
+    center: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    // 🔷 Header
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+        paddingTop: 60,
+        paddingBottom: 16,
+    },
+
+    headerTitle: {
+        fontSize: 24,
+        fontWeight: '800',
+        color: COLORS.text,
+        letterSpacing: -0.5
+    },
+
+    headerSub: {
+        fontSize: 13,
+        color: COLORS.textMuted,
+        marginTop: 4
+    },
+
+    logoutBtn: {
+        backgroundColor: '#FEE2E2',
+        paddingHorizontal: 14,
+        paddingVertical: 6,
+        borderRadius: 20,
+    },
+
+    logoutText: {
+        fontSize: 11,
+        color: COLORS.disputed,
+        fontWeight: '700'
+    },
+
+    // 🏛️ Role badge
+    roleBadge: {
+        marginHorizontal: 20,
+        marginBottom: 12,
+        backgroundColor: COLORS.primary,
+        paddingVertical: 8,
+        borderRadius: 12,
+        alignItems: 'center',
+    },
+
+    roleBadgeText: {
+        fontSize: 11,
+        color: '#fff',
+        fontWeight: '700',
+    },
+
+    // 📊 Stats
+    statRow: {
+        flexDirection: 'row',
+        gap: 10,
+        paddingHorizontal: 20,
+        marginBottom: 10,
+    },
+
+    statCard: {
+        flex: 1,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 16,
+        paddingVertical: 18,
+        alignItems: 'center',
+
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.06,
+        shadowRadius: 10,
+        elevation: 3,
+    },
+
+    statNum: {
+        fontSize: 20,
+        fontWeight: '800',
+        marginBottom: 4
+    },
+
+    statLabel: {
+        fontSize: 10,
+        color: COLORS.textMuted,
+        fontWeight: '600',
+    },
+
+    // 🎯 Filters
+    filterRow: {
+        flexDirection: 'row',
+        gap: 8,
+        paddingHorizontal: 20,
+        marginBottom: 6,
+    },
+
+    chip: {
+        paddingHorizontal: 14,
+        paddingVertical: 8,
+        borderRadius: 20, // 🔥 pill
+        backgroundColor: '#FFFFFF',
+        borderWidth: 1,
+        borderColor: '#E5E7EB',
+    },
+
+    chipActive: {
+        backgroundColor: COLORS.primary,
+        borderColor: COLORS.primary,
+    },
+
+    chipText: {
+        fontSize: 11,
+        color: COLORS.textMuted,
+        fontWeight: '600'
+    },
+
+    chipTextActive: {
+        color: '#fff',
+        fontWeight: '700'
+    },
+
+    // ⚠️ Error
+    error: {
+        marginHorizontal: 20,
+        marginVertical: 10,
+        color: COLORS.disputed,
+        fontSize: 13
+    },
+
+    // 📋 List
+    list: {
+        paddingHorizontal: 20,
+        paddingTop: 10,
+        paddingBottom: 100, // 🔥 space for floating tab
+    },
+
+    empty: {
+        textAlign: 'center',
+        color: COLORS.textMuted,
+        marginTop: 80,
+        fontSize: 14
+    },
 });
