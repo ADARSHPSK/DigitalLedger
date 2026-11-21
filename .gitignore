@@ -1,0 +1,31 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+
+# Expo / React Native
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Output
+backend/node_modules/
+frontend/eLedger/node_modules/
+frontend/eLedger/.expo/
+frontend/eLedger/dist/
