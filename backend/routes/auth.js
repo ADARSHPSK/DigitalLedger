@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+<<<<<<< HEAD
 const { protect } = require('../middleware/auth');
+=======
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 
 // Helper function — creates a JWT token that lasts 30 days
 // The token carries the user's id, role, and name
@@ -66,13 +69,18 @@ router.post('/login', async (req, res) => {
     const token = signToken(user);
     res.json({
       token,
+<<<<<<< HEAD
       user: { id: user._id, name: user.name, role: user.role, mustChangePassword: !!user.mustChangePassword },
+=======
+      user: { id: user._id, name: user.name, role: user.role },
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
+<<<<<<< HEAD
 // ── POST /auth/change-password ────────────────────────────────────────────────
 // Lets a user replace the temporary password an admin gave them.
 // Request body: { currentPassword, newPassword }
@@ -100,4 +108,6 @@ router.post('/change-password', protect, async (req, res) => {
   }
 });
 
+=======
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 module.exports = router;

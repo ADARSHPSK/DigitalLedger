@@ -10,8 +10,11 @@
 - 📄 View owned land records
 - 📜 Track ownership history
 - 🔍 See land status (Clear / Under Review / Disputed)
+<<<<<<< HEAD
 - ✔ **Record verified** badge — checks the record against its tamper-evident audit log
 - ✨ **One-tap AI summary** of the whole history in plain language
+=======
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 
 ### 🏛️ For Officials
 - 🔎 Search land records
@@ -19,6 +22,7 @@
 - ⚖️ Update land status
 - 🔄 Record ownership transfers
 - 📊 Dashboard for flagged lands
+<<<<<<< HEAD
 - 🔒 Can only act on plots in their **assigned villages**
 
 ### 🛠️ For Admins (web dashboard)
@@ -26,6 +30,8 @@
 - 👥 Create owner / official accounts with a one-time **printable credentials slip**
 - 🔗 Link or unlink plots to an owner, reset lost passwords
 - 🧾 **Verify all records** — finds any plot whose data no longer matches its audit log
+=======
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 
 ---
 
@@ -67,17 +73,29 @@
 ## 🧠 Architecture
 
 ```
+<<<<<<< HEAD
 Mobile App (React Native)      Admin Dashboard (React, web)
               ↘                  ↙
             API Layer (Express.js)  ──►  Claude API (summaries only)
                       ↓
               Database (MongoDB)
         Land · User · AuditBlock (hash chain)
+=======
+Mobile App (React Native)
+        ↓
+API Layer (Express.js)
+        ↓
+  Database (MongoDB)
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 ```
 
 - Role-based access (Owner / Official / Admin)
 - Secure API endpoints
+<<<<<<< HEAD
 - Append-only ledger + SHA-256 hash-chained audit log per plot
+=======
+- Real-time data consistency
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 
 ---
 
@@ -85,9 +103,15 @@ Mobile App (React Native)      Admin Dashboard (React, web)
 
 | Role     | Permissions          |
 |----------|----------------------|
+<<<<<<< HEAD
 | Owner    | View own plots, search, verify + summarise own plots |
 | Official | Comment, flag, record transfers — **in assigned villages only** |
 | Admin    | Create plots & accounts, link plots, verify all (web dashboard) |
+=======
+| Owner    | View only            |
+| Official | Modify + Comment     |
+| Admin    | Full control         |
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 
 ---
 
@@ -113,6 +137,7 @@ cd DigitalLedger
 ```bash
 cd backend
 npm install
+<<<<<<< HEAD
 cp .env.example .env     # then fill in MONGO_URI and JWT_SECRET
 npm run seed             # test users + 6 land records, each with an audit chain  (WIPES the database it points at)
 npm start
@@ -162,6 +187,18 @@ to the audit log *and* edits made directly to the land record (changed owner, re
 
 **Known limit:** the log lives in the same database as the data. Someone who can rewrite *both* and recompute every hash is not
 detected. Publishing each plot's latest hash somewhere outside this database (or on a blockchain — see Future Scope) closes that gap.
+=======
+node seed.js   # populate test data
+npm start
+```
+
+### 3️⃣ Run the frontend
+```bash
+cd frontend
+npm install
+npx expo start
+```
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 
 ---
 
@@ -171,17 +208,26 @@ detected. Publishing each plot's latest hash somewhere outside this database (or
 |----------|------------|------------|
 | Official | 1111111111 | officer123 |
 | Owner    | 2222222222 | user123    |
+<<<<<<< HEAD
 | Admin    | 0000000000 | admin123   |
+=======
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 
 ---
 
 ## 🔮 Future Scope
 
 - 📍 GIS / Map integration
+<<<<<<< HEAD
 - 🧾 Anchor each plot's head hash on a blockchain / external log (turns tamper-*evident* into tamper-*proof* against insiders)
 - 📲 Aadhaar / Gov integration
 - 🔔 Push notifications for land updates
 - 📴 Offline mode · 🇮🇳 Hindi / regional languages · 📷 OCR of paper deeds
+=======
+- 🧾 Blockchain-based record immutability
+- 📲 Aadhaar / Gov integration
+- 🔔 Notifications for land updates
+>>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
 - 📊 Advanced analytics dashboard
 
 ---
