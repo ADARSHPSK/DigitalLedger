@@ -33,7 +33,10 @@
 
 ### 🔐 Authentication
 
-![Login](screenshots/login.jpeg)
+
+<p align="center">
+  <img src="screenshots/login.jpeg" width="250" />
+</p>
 
 ### 👨‍💼 Officer Screens
 
@@ -57,15 +60,15 @@
 
 <p align="center">
   <img src="screenshots/admin_dashboard.jpeg" width="400" />
-  <img src="screenshots/ad_new_user_link_record.jpeg" width="250" />
-  <img src="screenshots/add_new_user_ans_password.jpeg" width="250" />
-  <img src="screenshots/add_verify_landrecord.jpeg" width="250" />
+  <img src="screenshots/ad_new_user_link_record.jpeg" width="400" />
+  <img src="screenshots/add_new_user_ans_password.jpeg" width="400" />
+  <img src="screenshots/add_verify_landrecord.jpeg" width="400" />
 </p>
 
 ### 🧠 AI-Assisted Summarisation
 
 <p align="center">
-  <img src="screenshots/ai_summarisation.jpeg" width="400" />
+  <img src="screenshots/ai_summarisation.jpeg" width="250" />
 </p>
 
 ---
