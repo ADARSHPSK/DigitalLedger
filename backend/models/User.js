@@ -27,13 +27,12 @@ const userSchema = new mongoose.Schema({
     village: String,
   }],
 
-<<<<<<< HEAD
+
   // true for accounts created by an admin with a temporary password;
   // cleared when the user sets their own password (POST /auth/change-password)
   mustChangePassword: { type: Boolean, default: false },
 
-=======
->>>>>>> a21647bcf8ccd7137a8a7412eb798227c00aacdd
+
 }, { timestamps: true });
 
 // BEFORE saving a user, hash the password automatically
